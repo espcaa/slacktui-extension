@@ -89,24 +89,102 @@
                 border-color: var(--green);
             }
 
-            #output {
-                font-family: "Fira Mono", monospace;
+            textarea {
+                width: 100%;
+                height: 4rem;
+                background-color: var(--surface1);
+                border: none;
+                border-radius: 4px;
                 color: var(--peach);
-                text-align: center;
-                margin-top: 1rem;
-                white-space: nowrap;
+                font-family: "Fira Mono", monospace;
+                font-size: 0.9rem;
+                padding: 0.5rem;
+                resize: none;
+                user-select: text;
                 overflow-x: auto;
+                white-space: nowrap;
+                margin-top: 0.5rem;
+            }
+
+            label {
+                display: block;
+                margin-top: 1rem;
+                color: var(--mauve);
+                font-weight: 600;
+                font-family: "Fira Mono", monospace;
             }
         </style>
     </head>
     <body>
         <h1>._. Welcome to Slack TUI Wizzard ._.</h1>
         <p>
-            First navigate to your Slack workspace and click on the "Get d
-            Cookie" button!!
+            Open your slack workspace in your browser then click the shiny
+            button!!
         </p>
-        <button id="get">Get d Cookie</button>
-        <p id="output"></p>
+        <button id="get">Get your token</button>
+
+        <div id="content" style="display: none">
+            <label for="cookieField">Cookie (document.cookie):</label>
+            <textarea id="cookieField" readonly style="height: 1rem"></textarea>
+            <button
+                id="copyCookie"
+                style="
+                    display: block;
+                    margin-top: 0.5rem;
+                    background-color: var(--surface1);
+                    border: 1px solid var(--surface0);
+                    border-radius: 4px;
+                    color: var(--blue);
+                    font-weight: 600;
+                    font-family:
+                        Fira Mono,
+                        monospace;
+                    font-size: 0.9rem;
+                    padding: 0.5rem 0;
+                    cursor: pointer;
+                    transition:
+                        background-color 0.3s ease,
+                        color 0.3s ease;
+                    box-shadow: inset 0 0 5px var(--blue);
+                    user-select: none;
+                "
+            >
+                Copy Cookie
+            </button>
+
+            <label for="tokenField">Token (xoxc):</label>
+            <textarea id="tokenField" readonly style="height: 1rem"></textarea>
+            <button
+                id="copyToken"
+                style="
+                    display: block;
+                    margin-top: 0.5rem;
+                    background-color: var(--surface1);
+                    border: 1px solid var(--surface0);
+                    border-radius: 4px;
+                    color: var(--blue);
+                    font-weight: 600;
+                    font-family: &quot;Fira Mono&quot;, monospace;
+                    font-size: 0.9rem;
+                    padding: 0.5rem 0;
+                    cursor: pointer;
+                    transition:
+                        background-color 0.3s ease,
+                        color 0.3s ease;
+                    box-shadow: inset 0 0 5px var(--blue);
+                    user-select: none;
+                "
+            >
+                Copy Token
+            </button>
+        </div>
+        <p
+            id="errorText"
+            style="display: none; color: var(--red); text-align: center"
+        >
+            Failed to get data
+        </p>
+
         <script src="popup.js"></script>
     </body>
 </html>
