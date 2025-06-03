@@ -7,5 +7,11 @@
   "host_permissions": ["https://*.slack.com/*"],
   "action": {
     "default_popup": "popup.html"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "slacktui-wizzard@espcaa.eu",
+      "strict_min_version": "109.0"
+    }
   }
 }
